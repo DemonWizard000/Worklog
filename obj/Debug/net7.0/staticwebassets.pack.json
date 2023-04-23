@@ -1,0 +1,501 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\WorkLog.bundle.scp.css",
+      "PackagePath": "staticwebassets\\WorkLog.bundle.scp.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\PersonalLog\\setting.js",
+      "PackagePath": "staticwebassets\\PersonalLog\\setting.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\PersonalLog\\styles.css",
+      "PackagePath": "staticwebassets\\PersonalLog\\styles.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\WorkLog\\setting.js",
+      "PackagePath": "staticwebassets\\WorkLog\\setting.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\WorkLog\\styles.css",
+      "PackagePath": "staticwebassets\\WorkLog\\styles.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\css\\Parenting.styles.css",
+      "PackagePath": "staticwebassets\\css\\Parenting.styles.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\css\\style.bundle.css",
+      "PackagePath": "staticwebassets\\css\\style.bundle.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\img\\avatar.png",
+      "PackagePath": "staticwebassets\\img\\avatar.png"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\img\\leaf-32.ico",
+      "PackagePath": "staticwebassets\\img\\leaf-32.ico"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\img\\pencil.png",
+      "PackagePath": "staticwebassets\\img\\pencil.png"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap-icons\\bootstrap-icons.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-icons\\bootstrap-icons.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap-icons\\bootstrap-icons.json",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-icons\\bootstrap-icons.json"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap-icons\\fonts\\bootstrap-icons.woff",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-icons\\fonts\\bootstrap-icons.woff"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap-icons\\fonts\\bootstrap-icons.woff2",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-icons\\fonts\\bootstrap-icons.woff2"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\New folder\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\jquery-infinite-scroll\\infinite-scroll.pkgd.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-infinite-scroll\\infinite-scroll.pkgd.min.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\jquery-infinite-scroll\\jquery.infiniteScroll.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-infinite-scroll\\jquery.infiniteScroll.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "E:\\Dev\\ASP.NET\\PersonalLog\\PersonalLogs\\trunk\\WorkLog\\wwwroot\\lib\\word-cloud\\wordcloud2.js",
+      "PackagePath": "staticwebassets\\lib\\word-cloud\\wordcloud2.js"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.WorkLog.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.WorkLog.props",
+      "PackagePath": "build\\WorkLog.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.WorkLog.props",
+      "PackagePath": "buildMultiTargeting\\WorkLog.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.WorkLog.props",
+      "PackagePath": "buildTransitive\\WorkLog.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

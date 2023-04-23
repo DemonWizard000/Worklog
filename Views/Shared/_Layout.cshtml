@@ -1,0 +1,384 @@
+﻿@using WorkLog.Repository;
+@using WorkLog.Data;
+@{
+    Tenant tenant = Context.Items["Tenant"] as Tenant;
+    List<string> navigationLabels = tenant.NavigationLabels.Split(",#").ToList();
+    ChannelRepository channelRepository = new ChannelRepository();
+    CommentRepository commentRepository = new CommentRepository();
+
+    long ChannelId = -1;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@tenant.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/@tenant.CustomCSSURL" asp-append-version="true" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.1/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <script src="~/@tenant.CustomSettingURL" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="~/lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <script src="~/lib/jquery-infinite-scroll/infinite-scroll.pkgd.min.js"></script>
+
+    <script src="~/lib/word-cloud/wordcloud2.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js"></script>
+
+    <!-- Resources -->
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</head>
+<script>
+
+    $(document).ready(function () {
+
+        $("#AddChannelForm").validate({
+            submitHandler: function () {
+                SendRequest({
+                    url: "/api/ChannelAPI/addOrUpdateChannel",
+                    data: {
+                        Name: $("#AddChannelForm input[name='channelName']").val(),
+                        Questions: [
+                            $("#AddChannelForm input[name='question1']").val(),
+                            $("#AddChannelForm input[name='question2']").val(),
+                            $("#AddChannelForm input[name='question3']").val(),
+                            $("#AddChannelForm input[name='question4']").val(),
+                            $("#AddChannelForm input[name='question5']").val(),
+                            $("#AddChannelForm input[name='question6']").val()
+                        ].join(",#"),
+                        Description: $("#AddChannelForm textarea[name='description']").val(),
+                        Id: $("#addChannelModal").attr("data-channel-id")
+                    }
+                }, function (res) {
+                    if (res) {
+                        alert("Submitted Successfully!");
+                        $("#addChannelModal").modal('hide');
+                        location.reload();
+                    }
+                });
+            }
+        });
+
+        $("#AddGroupForm").validate({
+            submitHandler: function () {
+                SendRequest({
+                    url: "/api/GroupAPI/addOrUpdateGroup",
+                    data: {
+                        Name: $("#AddGroupForm input[name='groupName']").val(),
+                        Description: $("#AddGroupForm textarea[name='description']").val(),
+                        ChannelId: $("#addGroupModal").attr("data-channel-id"),
+                        Id: $("#addGroupModal").attr("data-group-id")
+                    },
+                }, function (res) {
+
+                    if (res !== null) {
+                        alert("Submitted Successfully!");
+                        $("#addGroupModal").modal('hide');
+                        location.reload();
+                    }
+                });
+            }
+        });
+
+        //Call the setupSessionTimeout() function to start monitoring for session timeout
+    });
+</script>
+@if (User!.Identity!.IsAuthenticated)
+{
+    <script>
+        $(document).ready(function () {
+            SendRequest({
+                url: "/api/WorkLogAPI/getSessionExpirationTime"
+            }, function (res) {
+                // res is the minute
+                setupSessionTimeout(res);
+            });
+        });
+    </script>
+}
+<body>
+    <header class="p-3 main-header-footer">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a class="d-flex align-items-center mb-2 mb-lg-0 me-md-auto text-white text-decoration-none">
+                    <i class="fa-light fa-chart-network fs-2"></i>
+                    @*<img src="~/img/leaf-32.ico" alt="logo">*@
+                    <span class="fs-4">
+                        &nbsp;&nbsp;@tenant.Name
+                        @if (User!.Identity!.IsAuthenticated)
+                        {
+                            //Get Channel Data
+                            try
+                            {
+                                ChannelId = (long)Context.Session.GetInt32("ChannelId");
+                            }
+                            catch (Exception ex)
+                            {
+                            }
+                            Channel currentChannel = null;
+                            if (ChannelId != -1)
+                                currentChannel = await channelRepository.GetChannelById(ChannelId);
+
+                            if (ChannelId == -1 || currentChannel == null)
+                                currentChannel = new Channel()
+                    {
+                        Id = -1,
+                        Name = "Default"
+                    };
+                            <span> - @currentChannel.Name</span>
+                        }
+                    </span>
+                </a>
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="/WorkLog/Home" class="nav-link px-2 text-white">@navigationLabels[0]</a></li>
+                    <li class="nav-item"><a href="/WorkLog/About" class="nav-link px-2 text-white">@navigationLabels[1]</a></li>
+                    <li class="nav-item"><a href="/WorkLog/HowTo" class="nav-link px-2 text-white">@navigationLabels[2]</a></li>
+                    @if (User!.Identity!.IsAuthenticated == false)
+                    {
+                        <li class="nav-item"><a href="/Auth/SignIn" class="nav-link px-2 text-white">Sign In</a></li>
+                    }
+                    @if (User!.Identity!.IsAuthenticated)
+                    {
+                        //Add channels
+                        string UserEmail = Context.Session.GetString("UserEmail");
+
+                        bool channelInvitationExist = await channelRepository.ChannelInvitationExist(UserEmail);
+                        bool groupInvitationExist = await channelRepository.GroupInvitationExist(UserEmail);
+                        List<Group> groupLists = await channelRepository.GetAvailableGroupLists(UserEmail);
+                        List<Channel> channelLists = await channelRepository.GetAvailableChannelLists(UserEmail);
+
+                        <li class="nav-item"><a href="/WorkLog/Premium" class="nav-link px-2 text-white">Premium Features</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">@navigationLabels[3]</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link px-2 text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">@navigationLabels[4]</a>
+                            <ul class="dropdown-menu text-small">
+                                <li>
+                                    <a class="dropdown-item" href="/WorkLog/DailyInventory">Summary</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/WorkLog/Search">Search</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/WorkLog/Compare">Compare</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/WorkLog/Review">Review</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">@navigationLabels[5]</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false">
+                                Hi @User.Identity.Name.Split("-")[1]
+                            </a>
+                            <ul class="dropdown-menu text-small">
+                                @if (groupInvitationExist || channelInvitationExist)
+                                {
+                                    <li>
+                                        <a class="dropdown-item" href="/Channel/Invitations">
+                                            <span class="position-relative">
+                                                Invitations
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
+                                @if (channelLists.Count != 0)
+                                {
+                                    <li class="dropdown">
+                                        <a class="dropdown-item">Channels</a>
+                                        <ul>
+                                            @if (ChannelId != -1)
+                                            {
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item" href="/Channel/JoinChannel?ChannelId=-1">
+                                                        Default
+                                                    </a>
+                                                </li>
+                                            }
+                                            @foreach (Channel channel in channelLists)
+                                            {
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item" href="/Channel/Manage?ChannelId=@channel.Id">
+                                                        @if (ChannelId == channel.Id)
+                                                        {
+                                                            <span style="color: red; text-align: center;">*</span>
+                                                        }
+                                                        @channel.Name
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                @if (groupLists.Count != 0)
+                                {
+                                    <li class="dropdown">
+                                        <a class="dropdown-item">Groups</a>
+                                        <ul>
+                                            @foreach (Group group in groupLists)
+                                            {
+                                                int count = await commentRepository.GetUnreadCommentsCount(UserEmail, group.Id);
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item" href="/Group/Manage?GroupId=@group.Id">
+                                                        @group.Name
+                                                        @if (count > 0)
+                                                        {
+                                                            <span class="badge badge-pill badge-success">@count</span>
+                                                        }
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+
+                                @if (User.IsInRole("Administrator"))
+                                {
+                                    <li class="dropdown">
+                                        <a class="dropdown-item" href="#">Admin Panel</a>
+                                        <ul>
+                                            <li><a class="dropdown-item" href="/Admin/CreateSites">Create Sites</a></li>
+                                            <li><a class="dropdown-item" href="/Admin/ManageSites">Manage Sites</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                                <li>
+                                    <a class="dropdown-item" href="/Auth/SignOut">Sign Out</a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <footer class="py-2 main-header-footer fixed-bottom">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center">
+                <span class="text-center text-white fs-5">@tenant.Name is free for individuals.</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-3 shadow">
+            <div class="modal-body p-4">
+                <h4 class="mb-3 text-center">Invitation form</h4><hr>
+                <h3 class="mb-3 text-center">Accept invitation here</h3><hr>
+            </div>
+            <div class="modal-footer flex-nowrap p-0">
+                <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end" id="Accept"><strong>Accept</strong></button>
+                <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="addChannelModal" data-channel-id="0">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h1 class="fw-bold mb-0 fs-2">Add Channel</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-5 pt-0">
+                <div class="row py-3">
+                    <div class="col-md-12">
+                        <span class="mx-auto fs-3 d-flex flex-wrap justify-content-center"><b>Channel</b></span>
+                        <br />
+                        <div class="d-flex flex-wrap justify-content-center align-items-center">
+                            <form class="custom-form" id="AddChannelForm">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Name</span>
+                                    <input type="text" class="form-control" name="channelName" id="channelName" aria-label="channelName" required>
+                                </div>
+                                <div>
+                                    <span class="fs-5">Questions</span>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">1</span>
+                                    <input class="form-control" id="question1" name="question1" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">2</span>
+                                    <input class="form-control" id="question2" name="question2" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">3</span>
+                                    <input class="form-control" id="question3" name="question3" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">4</span>
+                                    <input class="form-control" id="question4" name="question4" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">5</span>
+                                    <input class="form-control" id="question5" name="question5" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">6</span>
+                                    <input class="form-control" id="question6" name="question6" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Description</span>
+                                    <textarea class="form-control" id="description" name="description" required></textarea>
+                                </div>
+                                <br /><br />
+                                <div class="container d-flex flex-wrap justify-content-center">
+                                    <button class="btn btn-ng btn-primary btn-zwidth" type="submit">Submit</button>
+                                </div>
+                                <br /><br />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="addGroupModal" data-channel-id="-1" data-group-id="0">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+                <!-- <h1 class="modal-title fs-5" >Modal title</h1> -->
+                <h1 class="fw-bold mb-0 fs-2">Add Group</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-5 pt-0">
+                <form id="AddGroupForm">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Name</span>
+                        <input type="text" class="form-control" name="groupName" aria-label="groupName" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Description</span>
+                        <textarea class="form-control" name="description" required></textarea>
+                    </div>
+                    <button class="w-100 py-2 mb-2 btn btn-ng btn-primary btn-zwidth rounded-3" type="submit">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

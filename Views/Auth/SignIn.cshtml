@@ -1,0 +1,60 @@
+﻿@model SignInVM
+@{
+    ViewData["Title"] = "Log In";
+    ViewData["HeaderTitle"] = "work log";
+    Tenant tenant = Context.Items["Tenant"] as Tenant;
+}
+<div class="container">
+
+    <div class="py-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-2">
+            <div class="col">
+                <div class="d-flex flex-wrap align-items-center py-3 my-5 col-md-10">
+                    <span class="text-center fs-6">
+                        @Html.Raw(tenant.Home_Page_Content)
+                        <br /><br />
+                        <a href="/Auth/Register" class="text-decoration-none">
+                            <span class="text-center fs-6 text-primary">Register Now</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="shadow mb-5 bg-body rounded">
+                    <div class="card-body">
+                        <div class="align-items-center py-3 my-2 p-3">
+                            <p class="text-center text-primary fs-3"><b>Log in</b></p>
+                            <p class="text-center card-text">Please use your credentials to login</p>
+                            <br /><br />
+                            <form method="post">
+                                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Email</span>
+                                    <input type="text" class="form-control" asp-for="Email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                                    <span class="text-danger" asp-validation-for="Email"></span>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Password</span>
+                                    <input type="password" class="form-control" asp-for="Password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                                    <span class="text-danger" asp-validation-for="Password"></span>
+                                </div>
+                                <br /><br />
+                                <div class="container d-flex flex-wrap justify-content-center">
+                                    <a href="#" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+                                        <span class="fs-6 text-primary">Forget Password?</span>
+                                    </a>
+                                    <button class="btn btn-ng btn-primary" type="submit">Login</button>
+                                </div>
+                                <br /><br />
+                            </form>
+                        </div>
+                        <div class="container d-flex flex-wrap justify-content-center bg-login py-3">
+                            <p class="text-center card-text">New to DailyInventory?</p>
+                            <a href="/Auth/Register" class="text-decoration-none"><p class="text-center card-text text-success">&nbsp;Register here.</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

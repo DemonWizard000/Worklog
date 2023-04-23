@@ -1,0 +1,181 @@
+﻿@model WorkLog.Controllers.AnswerViewModel
+
+@{
+    ViewData["Title"] = "Answer";
+    ViewData["HeaderTitle"] = "work log";
+}
+<script>
+    $(document).ready(function () {
+        
+        if (tenant_setting.dynamic_input === false)
+        {
+            for(let i = 0;i < tenant_setting.dynamic_input_count;i ++)
+            {
+                $('<div class="input-group mb-3"><span class="input-group-text" id="basic-addon1">' + (i + 1) + '</span><input type="text" class="form-control" aria-label="Text5" aria-describedby="basic-addon1" placeholder="Write here..."></div>')
+                .insertBefore($("form").find(".submit-div"));
+            }
+        }
+        else
+        {
+            $('<div class="input-group mb-3"><span class="input-group-text" id="basic-addon1">' + 1 +'</span><input type="text" class="form-control" aria-label="Text5" aria-describedby="basic-addon1" placeholder="Write here..."><button class="btn btn-primary add-btn" >Add New</button></div>')
+                .insertBefore($("form").find(".submit-div"));
+        }
+
+        //Show First Question Div
+        $("div[name='0']").show();
+
+        //Form submit processing
+        $("form").validate({
+            submitHandler: function (form, ev) {
+                ev.preventDefault();
+
+                //should implement at least one question.
+
+                const questionIndex = parseInt($(ev.target).parents("div.question").attr("name"));
+                if (questionIndex < @Model.Questions!.Count - 1)
+                {
+                    $(`div[name='${questionIndex}']`).hide();
+                    $(`div[name='${questionIndex + 1}']`).show();
+                    $(`div[name='${questionIndex + 1}']`).find("input, textarea")[0].focus();
+                }
+                else {
+                    let answerLists = getAnswers();
+                    let concatedAnswers = "";
+                    answerLists.forEach(function(answer){
+                        concatedAnswers += answer.Answer;
+                    });
+                    SendRequest({
+                        url: "/api/WorkLogAPI/addAnswers",
+                        data: {
+                            answers: answerLists,
+                            wordClouds: getWordFrequencies(concatedAnswers).map(function(wordFreq){
+                                return {
+                                    Word: wordFreq.word,
+                                    Count: wordFreq.freq
+                                };
+                            })
+                        }
+                    }, function(){
+                        //alert("success!");
+                        location.href = "/WorkLog/DailyInventory";
+                    });
+                }
+            }
+        });
+
+        //Feelings event definition
+        $("#feelings").on('click', 'i', function () {
+            $(this).siblings().removeClass("emoji-active");
+            $(this).addClass("emoji-active");
+        });
+
+        //BackBtn event definition
+        $(".backBtn").on('click', function(ev){
+            ev.preventDefault();
+
+            const questionIndex = parseInt($(this).parents("div.question").attr("name"));
+            
+            $(`div[name='${questionIndex}']`).hide();
+            $(`div[name='${questionIndex - 1}']`).show();
+            $(`div[name='${questionIndex - 1}']`).find("input, textarea")[0].focus();
+        });
+
+        $("form").on('click', '.add-btn', function (ev) {
+            ev.preventDefault();
+            let form = $(this).closest("form");
+            let count = $(this).closest(".input-group").siblings().length - 1;
+            form.find(".add-btn").remove();
+            let newDiv = $('<div class="input-group mb-3"><span class="input-group-text" id="basic-addon1">' + (count) + '</span><input type="text" class="form-control" aria-label="Text5" aria-describedby="basic-addon1" placeholder="Write here..."><button class="btn btn-primary add-btn" >Add New</button></div>');
+            newDiv.insertBefore(form.find('.submit-div'));
+        })
+
+        const getAnswers = () => {
+            const workLogs = [];
+
+            //get feelings
+            workLogs.push({
+                Feeling: $("#feelings").find("i.emoji-active").index(),
+                QuestionId: 0,
+            });
+
+            //get other answers.
+            for (let i = 1; i < @Model.Questions!.Count; i++) {
+                $(`div[name='${i}']`).find("input[type='text'], textarea").each(function () {
+                    if (!$(this).val().trim().length)
+                        return;
+
+                    workLogs.push({
+                        QuestionId: i,
+                        Answer: $(this).val(),
+                        AnswerId: $(this).parent().index()
+                    });
+                });
+            }
+
+            return workLogs;
+        };
+    });
+</script>
+@{
+    for (int i = 0; i < Model.Questions!.Count; i++)
+    {
+        <div name="@i" style="display: none" class="question">
+            <div class="py-5">
+                <div class="d-flex flex-wrap justify-content-center w-100 m-auto">
+                    <span class="text-center fs-3"><b>@Model!.Questions![i]</b></span>
+                </div>
+            </div>
+            <form>
+                @if (i == 0)
+                {
+                    <div class="py-3">
+                        <div class="d-flex flex-wrap justify-content-center col-lg-6 col-md-8 mx-auto" id="feelings">
+                            <i class="fa-light fa-face-frown-slight px-5 emoji-ng"></i>
+                            <i class="fa-light fa-face-meh px-5 emoji-ng  emoji-active"></i>
+                            <i class="fa-light fa-face-smile px-5 emoji-ng"></i>
+                        </div>
+                    </div>
+                    <div class="py-3">
+                        <div class="d-flex flex-wrap justify-content-end col-lg-6 col-md-8 mx-auto">
+                            <input type="submit" class="btn btn-primary px-4 justify-content-between" value="Next" />
+                        </div>
+                    </div>
+                }
+                @if (i >= 1 && i <= 5)
+                {
+                    <div class="py-3">
+                        <div class="d-flex flex-wrap justify-content-center col-lg-8 col-md-10 mx-auto answer-inputs">
+                            <div class="container d-flex flex-wrap justify-content-center py-2 submit-div">
+                                <div class="d-flex flex-wrap col-md-10 mx-auto justify-content-center">
+                                    <button class="btn btn-warning px-4 justify-content-between mx-auto backBtn" >Back</button>
+                                    <input type="submit" class="btn btn-primary px-4 justify-content-end mx-auto" value="Next" />
+                                </div>
+                            </div>
+                            <br /><br />
+                        </div>
+                    </div>
+                }
+                @if (i > 5)
+                {
+                    <div class="py-3">
+                        <div class="d-flex flex-wrap justify-content-center col-lg-8 col-md-10 mx-auto">
+                            <div class="input-group">
+                                <textarea class="form-control cus-textarea" id="answer1" placeholder="Write here... " required></textarea>
+                            </div>
+                            <br /><br />
+                            <div class="container d-flex flex-wrap justify-content-center py-2">
+                                <div class="d-flex flex-wrap col-md-10 mx-auto justify-content-center">
+                                    <button class="btn btn-warning px-4 justify-content-between mx-auto backBtn">Back</button>
+                                    <input type="submit" class="btn btn-primary px-4 justify-content-between mx-auto" />
+                                </div>
+                            </div>
+                            <br /><br />
+                        </div>
+                    </div>
+                }
+            </form>
+        </div>
+    }
+}
+
+

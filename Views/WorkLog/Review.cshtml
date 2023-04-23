@@ -1,0 +1,418 @@
+﻿@model WorkLog.Controllers.AnswerViewModel
+
+@{
+    ViewData["Title"] = "Review";
+    ViewData["HeaderTitle"] = "work log";
+}
+<script>
+
+    $(document).ready(function () {
+
+        am5.ready(function () {
+
+            // Data
+            var allData = {};
+
+            var root = am5.Root.new("bar_chart_race");
+
+            root.numberFormatter.setAll({
+                numberFormat: "#a",
+
+                // Group only into M (millions), and B (billions)
+                bigNumberPrefixes: [
+                    { number: 1e6, suffix: "M" },
+                    { number: 1e9, suffix: "B" }
+                ],
+
+                // Do not use small number prefixes at all
+                smallNumberPrefixes: []
+            });
+
+            var stepDuration = tenant_setting.review_play_speed * 1000;
+
+            root.setThemes([am5themes_Animated.new(root)]);
+
+            var chart = root.container.children.push(am5xy.XYChart.new(root, {
+                panX: true,
+                panY: true,
+                wheelX: "none",
+                wheelY: "none"
+            }));
+
+            chart.zoomOutButton.set("forceHidden", true);
+
+            var yRenderer = am5xy.AxisRendererY.new(root, {
+                minGridDistance: 20,
+                inversed: true
+            });
+            // hide grid
+            yRenderer.grid.template.set("visible", false);
+
+            var yAxis = chart.yAxes.push(am5xy.CategoryAxis.new(root, {
+                maxDeviation: 0,
+                categoryField: "network",
+                renderer: yRenderer
+            }));
+
+            var xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
+                maxDeviation: 0,
+                min: 0,
+                strictMinMax: true,
+                extraMax: 0.1,
+                renderer: am5xy.AxisRendererX.new(root, {})
+            }));
+
+            //xAxis.set("interpolationDuration", stepDuration / 100);
+            //xAxis.set("interpolationEasing", am5.ease.linear);
+
+            var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+                xAxis: xAxis,
+                yAxis: yAxis,
+                valueXField: "value",
+                categoryYField: "network"
+            }));
+
+            // Rounded corners for columns
+            series.columns.template.setAll({ cornerRadiusBR: 5, cornerRadiusTR: 5 });
+
+            // Make each column to be of a different color
+            series.columns.template.adapters.add("fill", function (fill, target) {
+                return chart.get("colors").getIndex(series.columns.indexOf(target));
+            });
+
+            series.columns.template.adapters.add("stroke", function (stroke, target) {
+                return chart.get("colors").getIndex(series.columns.indexOf(target));
+            });
+
+            // Add label bullet
+            series.bullets.push(function () {
+                return am5.Bullet.new(root, {
+                    locationX: 1,
+                    sprite: am5.Label.new(root, {
+                        text: "{valueXWorking.formatNumber('#.# a')}",
+                        fill: root.interfaceColors.get("alternativeText"),
+                        centerX: am5.p100,
+                        centerY: am5.p50,
+                        populateText: true
+                    })
+                });
+            });
+
+            var label = chart.plotContainer.children.push(am5.Label.new(root, {
+                text: "2002",
+                fontSize: "8em",
+                opacity: 0.2,
+                x: am5.p100,
+                y: am5.p100,
+                centerY: am5.p100,
+                centerX: am5.p100
+            }));
+
+            // Get series item by category
+            function getSeriesItem(category) {
+                for (var i = 0; i < series.dataItems.length; i++) {
+                    var dataItem = series.dataItems[i];
+                    if (dataItem.get("categoryY") == category) {
+                        return dataItem;
+                    }
+                }
+            }
+
+            // Axis sorting
+            function sortCategoryAxis() {
+                // sort by value
+                series.dataItems.sort(function (x, y) {
+                    return y.get("valueX") - x.get("valueX"); // descending
+                    //return x.get("valueX") - y.get("valueX"); // ascending
+                });
+
+                // go through each axis item
+                am5.array.each(yAxis.dataItems, function (dataItem) {
+                    // get corresponding series item
+                    var seriesDataItem = getSeriesItem(dataItem.get("category"));
+
+                    if (seriesDataItem) {
+                        // get index of series data item
+                        var index = series.dataItems.indexOf(seriesDataItem);
+                        // calculate delta position
+                        var deltaPosition =
+                            (index - dataItem.get("index", 0)) / series.dataItems.length;
+                        // set index to be the same as series data item index
+                        if (dataItem.get("index") != index) {
+                            dataItem.set("index", index);
+                            // set deltaPosition instanlty
+                            dataItem.set("deltaPosition", -deltaPosition);
+                            // animate delta position to 0
+                            dataItem.animate({
+                                key: "deltaPosition",
+                                to: 0,
+                                duration: stepDuration / 2,
+                                easing: am5.ease.out(am5.ease.cubic)
+                            });
+                        }
+                    }
+                });
+                // sort axis items by index.
+                // This changes the order instantly, but as deltaPosition is set, they keep in the same places and then animate to true positions.
+                yAxis.dataItems.sort(function (x, y) {
+                    return x.get("index") - y.get("index");
+                });
+            }
+
+            /* main controlling */
+
+            let startIndex = 0, endIndex = 0;
+            const btn = document.getElementById('play-pause-button');
+            const input = document.getElementById('play-range');
+            const nbr = 20;
+            let type = 0;
+
+            let dataset = {}, datelist, wordlist = [];
+
+            var interval = -1, sortInterval;
+
+            const wordCloudOption = {
+                weightFactor: tenant_setting.weight_factor,
+                color: tenant_setting.color,
+                ellipticity: 1,
+                minRotation: 0,
+                maxRotation: 0,
+                fontFamily: "Impact, serif",
+                // clearCanvas: true,
+                // color: '#000',
+            };
+
+            function getSubtitle() {
+
+                let population = 0;
+
+                getData(input.value).forEach(function (data) {
+                    population += data[1];
+                });
+
+                return `<span style="font-size: 40px">${datelist[input.value]}</span>
+                                                                                                    <br>
+                                                                                                    <span style="font-size: 20px">
+                                                                                                        Total: <b>: ${population}</b>
+                                                                                                    </span>`;
+            }
+
+            /*
+             * Pause the timeline, either when the range is ended, or when clicking the pause button.
+             * Pausing stops the timer and resets the button to play mode.
+             */
+            function pause(button) {
+                button.title = 'play';
+                button.className = 'fa fa-play';
+                clearInterval(interval);
+                clearInterval(sortInterval);
+                interval = -1;
+            }
+
+            /*
+             * Play the timeline.
+             */
+            function play(button) {
+                button.title = 'pause';
+                button.className = 'fa fa-pause';
+
+                interval = setInterval(function () {
+                    input.value = parseInt(input.value) + 1;
+
+                    if (parseInt(input.value) === endIndex - 1) {
+                        // Auto-pause
+                        pause(btn);
+                    }
+
+                    updateData();
+                }, stepDuration);
+
+                sortInterval = setInterval(function () {
+                    sortCategoryAxis();
+                }, 100);
+            }
+
+            btn.addEventListener('click', function () {
+                if (interval !== -1) {
+                    pause(this);
+                } else {
+                    play(this);
+                }
+            });
+
+            input.addEventListener('click', function () {
+                updateData();
+            });
+
+            $("input[type='radio'][name='type']").on('change', function () {
+                type = parseInt($(this).val());
+                fetchData();
+            });
+
+            $(".review-tab").on('click', function () {
+                $(".review-tab").removeClass('active');
+                $(this).addClass('active');
+                $("#bar-chart-container").hide();
+                $("#wordcloud").hide();
+                $("#" + $(this).attr('data-id')).show();
+
+                fetchData();
+            })
+
+            function updateData() {
+                var itemsWithNonZero = 0;
+
+                var date_info = datelist[input.value];
+
+                if (dataset[date_info]) {
+                    label.set("text", date_info);
+
+                    am5.array.each(series.dataItems, function (dataItem) {
+                        var category = dataItem.get("categoryY");
+                        var value = dataset[date_info][category];
+
+                        if (value > 0) {
+                            itemsWithNonZero++;
+                        }
+
+                        dataItem.animate({
+                            key: "valueX",
+                            to: value,
+                            duration: stepDuration,
+                            easing: am5.ease.linear
+                        });
+                        dataItem.animate({
+                            key: "valueXWorking",
+                            to: value,
+                            duration: stepDuration,
+                            easing: am5.ease.linear
+                        });
+                    });
+
+                    yAxis.zoom(0, itemsWithNonZero / yAxis.dataItems.length);
+                }
+
+
+                WordCloud("word_cloud", {
+                    ...wordCloudOption,
+                    list: wordlist.map(word => [word, dataset[datelist[input.value]][word]]).filter(x => x[1] > tenant_setting.min_freq),
+                });
+
+            }
+
+            function fetchData() {
+                SendRequest({
+                    url: "/api/WorkLogAPI/getReview",
+                    data: {
+                        type
+                    }
+                }, function (results) {
+
+                    //reset data
+                    dataset = {};
+                    datelist = [];
+
+                    results.forEach(function (res) {
+                        if (res.count < tenant_setting.min_freq)
+                            return;
+
+                        let keyVal = "";
+                        switch (type) {
+                            case 0:
+                                keyVal = res.year + "-" + res.month + "-" + res.day;
+                                break;
+                            case 1:
+                                keyVal = res.year + "-" + res.week + "th week";
+                                break;
+                            case 2:
+                                keyVal = res.year + "-" + res.month;
+                                break
+                                break;
+                        }
+                        if (typeof dataset[keyVal] === 'undefined')
+                            dataset[keyVal] = {}, datelist.push(keyVal);
+
+                        if (wordlist.findIndex(function (x) { return x === res.word }) === -1)
+                            wordlist.push(res.word);
+
+                        dataset[keyVal][res.word] = res.count;
+                    });
+                    input.value = 0;
+                    endIndex = datelist.length;
+                    $("#play-range").attr('max', endIndex - 1);
+
+                    //clear current timer
+                    if (interval !== -1)
+                        clearInterval(interval), clearInterval(sortInterval);
+
+                    let d = dataset[datelist[input.value]];
+
+                    for (var n in d) {
+                        series.data.push({ network: n, value: d[n] });
+                        yAxis.data.push({ network: n });
+                    }
+
+                    updateData();
+
+                    WordCloud("word_cloud", {
+                        ...wordCloudOption,
+                        list: wordlist.map(word => [word, dataset[datelist[input.value]][word]]).filter(x => x[1] > tenant_setting.min_freq),
+                    });
+                });
+            }
+
+            //series.appear(1000);
+            //chart.appear(1000, 100);
+
+            //initailize
+            fetchData();
+
+        });
+    });
+</script>
+<figure class="highcharts-figure">
+    <ul class="nav nav-tabs mt-2">
+        <li class="nav-item">
+            <a class="nav-link active review-tab" href="#" data-id="bar-chart-container">Bar Chart</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link review-tab" href="#" data-id="wordcloud">Word Cloud</a>
+        </li>
+    </ul>
+    <div id="bar-chart-container" class="row mt-4">
+        <div class="col-md-12 py-1">
+            <div id="bar_chart_race" class="bar-chart"></div>
+        </div>
+    </div>
+    <div id="wordcloud" class="row mt-4" style="display: none">
+        <div class="col-md-12 d-flex flex-wrap justify-content-center mx-auto py-3">
+            <div id="word_cloud" class="word-cloud"></div>
+        </div>
+    </div>
+    <div id="play-controls" class="row d-flex align-center">
+        <div class="col-md-8">
+            <button id="play-pause-button" class="fa fa-play" title="play"></button>
+            <input id="play-range" type="range" value="0" min="0" max="10000" />
+        </div>
+        <div class="col-md-4 row">
+            <div class="col-md-4 form-check">
+                <input class="form-check-input" type="radio" name="type" value="0" checked>
+                <label class="form-check-label" for="type">
+                    Daily
+                </label>
+            </div>
+            <div class="col-md-4 form-check">
+                <input class="form-check-input" type="radio" name="type" value="1">
+                <label class="form-check-label" for="type">
+                    Weekly
+                </label>
+            </div>
+            <div class="col-md-4 form-check">
+                <input class="form-check-input" type="radio" name="type" value="2">
+                <label class="form-check-label" for="type">
+                    Monthly
+                </label>
+            </div>
+        </div>
+    </div>
+</figure>

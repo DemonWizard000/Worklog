@@ -1,0 +1,76 @@
+﻿@model WorkLog.Models.WorkLogAnswerDTO
+@{
+    ViewData["Title"] = "Work Log Search";
+    ViewData["HeaderTitle"] = "Daily Inventory";
+}
+<script>
+    $(document).ready(function () {
+        $("#searchBtn").on("click", function(ev){
+            SendRequest({
+                url: "/api/WorkLogAPI/searchByKeywords",
+                data: {
+                    keyword: $("#keyword_input").val()
+                }
+            }, function(results){
+                $("#answer_list").empty();
+                results.forEach(function(res, index){
+                    $("#answer_list").append('<div class="mb-4 d-flex"><h4 > ' + ( ++index ) + '. <a href = "/WorkLog/DailyInventory?date=' + moment(new Date(res.date)).format('MM/DD/YYYY')  + '" > ' + res.answer + '</a>&nbsp;&nbsp;&nbsp;' + moment(new Date(res.date)).format('MM/DD/YYYY') + '</h4 ></div>');
+                });
+                if (results.length === 0)
+                    $("#answer_list").append("<h3>Nothing matched</h3>")
+            });
+        });
+
+        $("#keyword_input").on('keydown', function(ev){
+            if(event.keyCode === 13) {
+                $("#searchBtn").click();
+            }
+        });
+    });
+</script>
+<div class="container">
+    <div class="py-3 row">
+        <h3 class="d-flex justify-content-center">Keyword Search</h3>
+    </div>
+    <div class="py-3 mb-4">
+        <div class="d-flex">
+            <input class="form-control" type="text" placeholder="Enter keyword..." id="keyword_input"/>
+            &nbsp;
+            <button class="btn btn-primary" id="searchBtn">Search</button>
+        </div>
+    </div>
+    <div class="row mb-4 py-4" id="answer_list">
+    </div>
+</div>
+@*<div class="row">
+    <div class="py-3">
+        <div class="mb-4">
+            <span class="mx-auto fs-5">Search:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <select class="dropdown-toggle form-select search-wx fs-5" aria-label="Default select example" id="dateRange">
+                <option value="0">Past Week</option>
+                <option value="1">Past Month</option>
+                <option value="2">Past 3 months</option>
+                <option value="3">Past Year</option>
+                <option value="4">All time</option>
+            </select>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 py-5">
+            <div class="list-group w-auto" id="list">
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5 py-5">
+            <div class="flex-grid align-item-center justify-content-center mx-auto">
+                <div id="word_cloud" class="word-cloud"></div>
+            </div>
+            <div class="flex-grid align-item-center justify-content-center mx-auto">
+                <div class="word_bar_chart">
+                    <canvas id="word_bar_chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@

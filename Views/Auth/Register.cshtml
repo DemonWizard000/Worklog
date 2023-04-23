@@ -1,0 +1,43 @@
+﻿@model WorkLog.Models.RegisterVM
+@{
+    ViewData["Title"] = "Register";
+    ViewData["HeaderTitle"] = "work log";
+}
+
+<div class="container">
+    <div class="py-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-0 d-flex align-items-center justify-content-center">
+            <div class="shadow bg-body rounded">
+                <div class="card-body">
+                    <div class="align-items-center py-3 my-2 p-3">
+                        <p class="text-center text-primary fs-3"><b>Register</b></p>
+                        <p class="text-center card-text">Please complete the form below</p>
+                        <br /><br />
+                        <form method="post">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">Email</span>
+                                <input type="text" class="form-control" asp-for="Email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                                <span class="text-danger" asp-validation-for="Email"></span>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">Username</span>
+                                <input type="text" class="form-control" asp-for="Username" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                                <span class="text-danger" asp-validation-for="Username"></span>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">Password</span>
+                                <input type="password" class="form-control" asp-for="Password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                                <span class="text-danger" asp-validation-for="Password"></span>
+                            </div>
+                            <br />
+                            <div class="container d-flex flex-wrap justify-content-end">
+                                <button class="btn btn-ng btn-primary" type="submit">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

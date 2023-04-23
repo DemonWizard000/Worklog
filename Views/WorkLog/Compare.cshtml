@@ -1,0 +1,74 @@
+﻿@model WorkLog.Controllers.AnswerViewModel
+
+@{
+    ViewData["Title"] = "Compare";
+    ViewData["HeaderTitle"] = "work log";
+}
+<script>
+    $(document).ready(function () {
+        const config = {
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(32, 'hour'),
+            locale: {
+                format: 'M/DD YYYY'
+            }
+        };
+
+        $("#startDate").daterangepicker(config, function (startDate, endDate) {
+            SendRequest({
+                url: "/api/WorkLogAPI/getByDateRange",
+                data: {
+                    startDateStr: moment(startDate).format("MM/DD/YYYY"),
+                    endDateStr: moment(endDate).format("MM/DD/YYYY")
+                }
+            }, function(res){
+                buildWordCloud("word_cloud_startDate", res || "", tenant_setting);
+            });
+        });
+
+        $("#endDate").daterangepicker(config, function (startDate, endDate) {
+            SendRequest({
+                url: "/api/WorkLogAPI/getByDateRange",
+                data: {
+                    startDateStr: moment(startDate).format("MM/DD/YYYY"),
+                    endDateStr: moment(endDate).format("MM/DD/YYYY")
+                }
+            }, function (res) {
+                buildWordCloud("word_cloud_endDate", res || "", tenant_setting);
+            });
+        });
+    });
+</script>
+<div class="row">
+    <br /><br />
+    <div class="py-3">
+        <div class="d-flex flex-wrap justify-content-center col-lg-6 col-md-8 mx-auto">
+            <p class="fs-2">
+            </p>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6 d-flex justify-content-center">
+                <span class="fs-5">Compare:&nbsp;&nbsp;</span>
+                <div class="mb-0">
+                    <input class="form-control search-bg" type="text" name="datetimes" id="startDate" />
+                </div>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center">
+                <span class="fs-5">To:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <div class="mb-0">
+                    <input class="form-control search-bg" type="text" name="datetimes" id="endDate" />
+                </div>
+            </div>
+            <br /><br />
+            <hr>
+        </div>
+        <div class="row py-5">
+            <div class="col-md-6">
+                <div id="word_cloud_startDate" class="word-cloud"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="word_cloud_endDate" class="word-cloud"></div>
+            </div>
+        </div>
+    </div>
+</div>

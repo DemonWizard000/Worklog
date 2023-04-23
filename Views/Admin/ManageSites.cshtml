@@ -1,0 +1,178 @@
+﻿@{
+    ViewData["Title"] = "Create Site";
+    ViewData["HeaderTitle"] = "work log";
+} 
+
+<script>
+    $(document).ready(function () {
+
+        $("#readyBtn").on('click', function(){
+            SendRequest({
+                url: "/api/TenantAPI/SetReady",
+                data: {
+                    tenantId: $(".tenant.active").attr("data-tenant-id")
+                }
+            }, function (res) {
+                if (res)
+                {
+                    alert("success");
+                    $(".tenant.active .button-circle").each(function(){
+                        $(this).removeClass("btn-warning");
+                        $(this).addClass("btn-primary");
+                    })
+                }
+            });
+        });
+
+        $(".tenant").on('click', function () {
+
+            $(this).siblings().removeClass("active custom-background");
+            $(this).addClass("active custom-background");
+
+            let questions = $(this).attr("data-tenant-questions").split(',#');
+            let labels = $(this).attr("data-tenant-navigations").split(',#');
+            let index = 0;
+            for (index = 0; index < questions.length; index++)
+                $("input[name='question" + index + "']").val(questions[index]);
+
+            for (index = 0; index < labels.length; index++)
+                $("input[name='label" + index + "']").val(labels[index]);
+        });
+
+        $("#SiteForm").validate({
+            submitHandler: function () {
+                let navigations = [], questions = [];
+
+                $("input[name^='label']").each(function(){ navigations.push($(this).val()); });
+                $("input[name^='question']").each(function () { questions.push($(this).val()); });
+
+                SendRequest({
+                    url: "/api/TenantAPI/setNavigationLabelAndQuestions",
+                    data: {
+                        tenantId: $(".tenant.active").attr("data-tenant-id"),
+                        navigationLabels: navigations.join(",#"),
+                        questions: questions.join(",#")
+                    }
+                }, function (res) {
+                    if (res)
+                    {
+                        alert("success");
+                        $(".tenant.active").attr("data-tenant-questions", questions.join(",#"));
+                        $(".tenant.active").attr("data-tenant-navigations", navigations.join(",#"));
+                    }
+                        
+                })
+            }
+        });
+    });
+</script>
+<div class="container">
+    <br /><br />
+    <div class="py-3">
+        <span class="mx-auto fs-3 d-flex flex-wrap justify-content-center">Manage sites </span>
+        <hr>
+    </div>
+    <div class="row py-3">
+        <div class="col-md-3">
+            <span class="mx-auto fs-3 d-flex flex-wrap justify-content-center"><b>Sites</b></span>
+            <br />
+            <div class="d-flex flex-wrap justify-content-center align-items-center" id="siteList">
+                <div class="list-group w-100" id="siteList">
+                    @foreach (var tenant in ViewData["Tenants"] as IList<Tenant>)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3 tenant" aria-current="true" data-tenant-id="@tenant.id" data-tenant-questions="@tenant.DefaultQuestions" data-tenant-navigations="@tenant.NavigationLabels">
+                            @if (tenant.IsReady)
+                            {
+                                <span class="btn btn-sm btn-primary button-circle"> </span>
+                            }
+
+                            @if (!tenant.IsReady)
+                            {
+                                <span class="btn btn-sm btn-warning button-circle"> </span>
+                            }
+
+                            <span class="fs-5">@tenant.Title </span>
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="d-flex justify-content-center">
+                <form class="custom-form w-100" id="SiteForm">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-6">
+                            <span class="mx-auto fs-3 d-flex flex-wrap justify-content-center"><b>Navigation labels</b></span>
+                            <br />
+                            <div class="d-flex flex-wrap justify-content-center mx-auto">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">1</span>
+                                    <input type="text" class="form-control" name="label0" placeholder="Write here..." required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text " id="basic-addon1 ">2</span>
+                                    <input type="text" class="form-control" name="label1" placeholder="Write here..." required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text " id="basic-addon1 ">3</span>
+                                    <input type="text" class="form-control" name="label2" placeholder="Write here..." required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text " id="basic-addon1 ">4</span>
+                                    <input type="text" class="form-control" name="label3" placeholder="Write here..." required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text " id="basic-addon1 ">5</span>
+                                    <input type="text" class="form-control" name="label4" placeholder="Write here..." required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text " id="basic-addon1 ">6</span>
+                                    <input type="text" class="form-control" name="label5" placeholder="Write here..." required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <span class="mx-auto fs-3 d-flex flex-wrap justify-content-center"><b>Questions</b></span>
+                            <br />
+                            <div class="d-flex flex-wrap justify-content-center mx-auto">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">1</span>
+                                    <input type="text" class="form-control" name="question0" placeholder="Write here..." required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text " id="basic-addon1 ">2</span>
+                                    <input type="text" class="form-control" name="question1" placeholder="Write here..." required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text " id="basic-addon1 ">3</span>
+                                    <input type="text" class="form-control" name="question2" placeholder="Write here..." required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text " id="basic-addon1 ">4</span>
+                                    <input type="text" class="form-control" name="question3" placeholder="Write here..." required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text " id="basic-addon1">5</span>
+                                    <input type="text" class="form-control" name="question4" placeholder="Write here..." required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text " id="basic-addon1">6</span>
+                                    <input type="text" class="form-control" name="question5" placeholder="Write here..." required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text " id="basic-addon1">7</span>
+                                    <input type="text" class="form-control" name="question6" placeholder="Write here...">
+                                </div>
+                            </div>
+                            <br /><br />
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <input type="submit" class="btn btn-primary btn-lg px-4 mx-3" value="Set" />
+                        <input type="button" id="readyBtn" class="btn btn-primary btn-lg px-4 mx-3" value="Set Ready" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

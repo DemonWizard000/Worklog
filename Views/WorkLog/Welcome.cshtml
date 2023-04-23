@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "About";
+    ViewData["HeaderTitle"] = "work log";
+    Tenant tenant = Context.Items["Tenant"] as Tenant;
+    //int VisitCount = ViewData["VisitCount"] as int;
+}
+
+<script>
+    $(document).ready(function () {
+        $(".NextBtn").on("click", function () {
+            location.href = "/WorkLog/Answer";
+        });
+    });
+</script>
+
+<div class="container">
+    <div class="d-flex flex-wrap justify-content-center col-lg-6 col-md-8 mx-auto py-5">
+        <p class="fs-2">
+             
+        </p>
+    </div>
+    @if ((int)@ViewData["VisitCount"] == 1)
+    {
+        @Html.Partial("_Welcome0.cshtml");
+    }
+    else if ((int)@ViewData["VisitCount"] > 1 && (int)@ViewData["VisitCount"] <= 10)
+    {
+        @Html.Partial("_Welcome1.cshtml");
+    }
+    else
+    {
+        @Html.Partial("_Welcome2.cshtml");
+    }
+    <div class="py-3">
+        <div class="d-flex flex-wrap justify-content-end col-lg-6 col-md-8 mx-auto">
+            <input type="submit" class="btn btn-primary px-4 justify-content-between NextBtn" value="Next" />
+        </div>
+    </div>
+</div>

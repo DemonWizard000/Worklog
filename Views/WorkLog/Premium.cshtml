@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "About";
+    ViewData["HeaderTitle"] = "work log";
+    Tenant tenant = Context.Items["Tenant"] as Tenant;
+}
+<script>
+    $(document).ready(function () {
+        $("#addChannelBtn").on('click', function () {
+            $("#addChannelModal").attr("data-channel-id", 0);
+            $("#addChannelModal").modal('show');
+        });
+
+        $("#addGroupBtn").on('click', function () {
+            $("#addGroupModal").attr("data-channel-id", -1);
+            $("#addGroupModal").attr("data-group-id", 0);
+            $("#addGroupModal").modal('show');
+        });
+        
+    });
+</script>
+<div class="container">
+    <div class="d-flex flex-wrap justify-content-center col-md-9 mx-auto py-5">
+        <p class="fs-3 mx-3">
+            We are proud to support individual’s personal growth for free.Still, we recognize that our platform has potential to help people in other ways, and offer these Premium Services at very affordable prices to encourage the growth of supportive communities and workplaces.
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-2 my-auto">
+            <p class="fs-3 mx-3">
+                Groups
+            </p>
+        </div>
+        <div class="col-md-4 my-auto">
+            <p class="fs-5 mx-3">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+        </div>
+        <div class="col-md-3 my-auto">
+            <p class="fs-3 mx-3">
+                $1.99 per month<br>
+                $12.99 per year
+            </p>
+            <p class="fs-5 mx-3">
+                Per group<br>
+                Group members will pay 1.25 each or 9.99 per year.
+            </p>
+        </div>
+        <div class="col-md-3 my-auto">
+            <button class="btn btn-ng btn-primary mx-3" id="addGroupBtn">Create Group</button>
+        </div>
+    </div>
+    <div class="row py-5">
+        <div class="col-md-2 my-auto">
+            <p class="fs-3 mx-3">
+                Channels
+            </p>
+        </div>
+        <div class="col-md-4 my-auto">
+            <p class="fs-5 mx-3">
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+        <div class="col-md-3 my-auto">
+            <p class="fs-3 mx-3">
+                $4.99 per month<br>
+                $39.99 per year
+            </p>
+            <p class="fs-5 mx-3">
+                Per channel, plus 1.00 per group member per month.<br>
+                Channels have unlimited groups.
+            </p>
+        </div>
+        <div class="col-md-3 my-auto">
+            <button class="btn btn-ng btn-primary mx-3" id="addChannelBtn">Create Channel</button>
+        </div>
+    </div>
+</div>

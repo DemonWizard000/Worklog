@@ -1,0 +1,120 @@
+﻿@model WorkLog.Models.ChannelUserDTO
+
+@{
+    ViewData["Title"] = "Channel List";
+    ViewData["HeaderTitle"] = "work log";
+
+    ChannelUserDTO channel = ViewData["Channel"] as ChannelUserDTO;
+    GroupUserDTO group = ViewData["Group"] as GroupUserDTO;
+}
+@if (channel != null)
+{
+    <script>
+        $(document).ready(function(){
+            $(".btn-accept-channel").on('click', function () {
+                SendRequest({
+                    url: "/api/ChannelAPI/acceptInvite",
+                    data: {
+                        invitationId: @channel.InvitationId
+                                }
+                }, function () {
+                    location.reload();
+                });
+            });
+
+            $(".btn-decline-channel").on('click', function () {
+                SendRequest({
+                    url: "/api/ChannelAPI/declineInvite",
+                    data: {
+                        invitationId: @channel.InvitationId
+                                }
+                }, function () {
+                    location.reload();
+                });
+            });
+        });
+    </script>
+}
+@if (group != null)
+{
+    <script>
+        $(document).ready(function () {
+            $(".btn-accept-group").on('click', function () {
+                SendRequest({
+                    url: "/api/GroupAPI/acceptInvite",
+                    data: {
+                        invitationId: @group.InvitationId
+                                    }
+                }, function () {
+                    location.reload();
+                });
+            });
+
+            $(".btn-decline-group").on('click', function () {
+                SendRequest({
+                    url: "/api/GroupAPI/declineInvite",
+                    data: {
+                        invitationId: @group.InvitationId
+                                    }
+                }, function () {
+                    location.reload();
+                });
+            });
+        });
+    </script>
+}
+
+<div class="container">
+    <br /><br />
+    <div class="row py-3">
+        <div class="col">
+            @if (channel != null)
+            {
+                int index = 1;
+
+                <h4 class="mb-3 text-center">@channel.Name (Manager: @channel.Manager_email.Split("-")[1])</h4>
+                <hr>
+                @foreach (string question in channel.Questions.Split(",#"))
+                {
+                    <p class="mb-0 fs-5"><b>Question @index</b></p>
+                    <p class="mb-0">@question</p>
+                    <hr />
+                    index++;
+                }
+                <p class="mb-1 fs-5">
+                    <b>
+                        Description :
+                        <br>
+                    </b>@channel.Description
+                </p>
+                <div class="d-flex flex-wrap col-md-10 mx-auto justify-content-center">
+                    <button class="btn btn-primary px-4 mx-1 btn-accept-channel">Accept</button>
+                    <button class="btn btn-dark px-4 btn-decline-channel">Decline</button>
+                </div>
+            }
+            @if (channel == null && group != null)
+            {
+                int index = 1;
+
+                <h4 class="mb-3 text-center">@group.Name (Manager: @group.Manager_email.Split("-")[1])</h4>
+                <hr>
+                <p class="mb-1 fs-5">
+                    <b>
+                        Description :
+                        <br>
+                    </b>@group.Description
+                </p>
+                <div class="d-flex flex-wrap col-md-10 mx-auto justify-content-center">
+                    <button class="btn btn-primary px-4 mx-1 btn-accept-group">Accept</button>
+                    <button class="btn btn-dark px-4 btn-decline-group">Decline</button>
+                </div>
+            }
+            @if (channel == null && group == null)
+            {
+                <h4 class="mb-3 text-center">
+                    No invitations.
+                </h4>
+            }
+        </div>
+    </div>
+</div>

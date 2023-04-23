@@ -1,0 +1,29 @@
+***********role based permissions***********
+@if (User!.IsInRole("ChannelMember"))
+{
+
+}
+
+@if (User!.IsInRole("ChannelOwner"))
+{
+
+}
+
+@if (User!.IsInRole("GroupMember"))
+{
+
+}
+
+@if (User!.IsInRole("GroupOwner"))
+{
+
+}
+
+@if (User!.IsInRole("Administrator"))
+{
+
+}
+
+
+
+

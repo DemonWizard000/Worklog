@@ -1,0 +1,93 @@
+﻿@model WorkLog.Models.WorkLogAnswerDTO
+@{
+    ViewData["Title"] = "Work Log Index Page";
+    ViewData["HeaderTitle"] = "Daily Inventory";
+    List<WorkLogAnswerDTO> AnswerDTOs = ViewData["AnswerDTOS"] as List<WorkLogAnswerDTO>;
+    List<string> questions = ViewData["questions"] as List<string>;
+}
+<script>
+    $(document).ready(function () {
+        $('.article-feed').infiniteScroll({
+            path: '.pagination__next',
+            append: '.word-cloud',
+            status: '.scroller-status',
+            hideNav: '.pagination',
+        });
+        //buildWordCloud("word_cloud", '@ViewData["AllAnswers"]');
+    });
+</script>
+<div class="row">
+    <div class="col-md-3">
+        <div class="article-feed">
+            <!-- .articles will be added to .article-feed -->
+            @*<article class="article">ASDF</article>
+            <article class="article">QWER</article>*@
+        </div>
+
+        <!-- status elements -->
+        <div class="scroller-status">
+            <div class="infinite-scroll-request loader-ellips">
+            </div>
+            <p class="infinite-scroll-last">End of content</p>
+            <p class="infinite-scroll-error">No more pages to load</p>
+        </div>
+
+        <!-- pagination has path -->
+        <p class="pagination">
+            <a class="pagination__next" href="/WorkLog/Review">Next page</a>
+        </p>
+    </div>
+
+    @*
+    <div class="col-md-5 py-5">
+    <div class="card">
+    @foreach (var AnswerDTO in AnswerDTOs)
+    {
+    <div class="card-header card-color py-3 text-primary">
+    Question @(AnswerDTO.QuestionId + 1) : @questions[AnswerDTO.QuestionId]
+    </div>
+
+    if (AnswerDTO.QuestionId == 0)
+    {
+    <div class="card-body ">
+    <div class="d-flex flex-wrap justify-content-center mx-auto py-3">
+    @switch (AnswerDTO.Feeling)
+    {
+    case 0:
+    <i class="fa-light fa-face-frown-slight px-5 emoji-ng emoji-active"></i>
+    break;
+    case 1:
+    <i class="fa-light fa-face-meh px-5 emoji-ng  emoji-active emoji-active"></i>
+    break;
+    case 2:
+    <i class="fa-light fa-face-smile emoji-ng emoji-active emoji-active"></i>
+    break;
+    }
+    </div>
+    </div>
+    }
+    else if (AnswerDTO.Answers?.Count == 1)
+    {
+    <div class="card-body px-3">
+    <p class="card-text">@AnswerDTO.Answers[0]</p>
+    </div>
+    }
+    else
+    {
+    int index = 0;
+    <div class="card-body px-3">
+    @foreach (var answer in AnswerDTO.Answers)
+    {
+    <p class="card-text">@(index++ + 1). @answer.</p>
+    }
+    </div>
+    }
+    }
+    </div>
+    </div>
+    <div class="col-md-4 d-flex justify-content-center">
+    <div class="flex-grid align-item-center justify-content-center mx-auto">
+    <div id="word_cloud" class="word-cloud"></div>
+    </div>
+    </div>*@
+</div>

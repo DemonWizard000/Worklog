@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Create Site";
+    ViewData["HeaderTitle"] = "work log";
+}
+
+<script>
+    $(document).ready(function(){
+    });
+</script>
+
+<div class="container">
+    <br /><br />
+    <div class="py-3">
+        <span class="mx-auto fs-3 d-flex flex-wrap justify-content-center">Account Settings</span>
+        <hr>
+    </div>
+    <div class="row py-3">
+        <div class="d-flex justify-content-center">
+            <form class="custom-form" id="SiteForm">
+                <span class="mx-auto fs-3 d-flex flex-wrap justify-content-center"><b>Word Cloud and Bar chart</b></span>
+                <br />
+                <div class="d-flex flex-wrap justify-content-center col-lg-8 col-md-10 mx-auto">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text min-width-100" id="basic-addon1">Minimum Frequency</span>
+                        <input type="number" class="form-control" name="min_frequency" id="min_frequency" placeholder="Minimum Frequency" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text min-width-100" id="basic-addon1 ">Page Name</span>
+                        <input type="text" class="form-control" name="PageName" id="PageName" aria-label="Text2" aria-describedby="basic-addon1" placeholder="Write here..." required>
+                    </div>
+                    <br /><br />
+                </div>
+                <br /><br />
+                <span class="mx-auto fs-3 d-flex flex-wrap justify-content-center"><b>Meta Tags</b></span>
+                <br />
+                <div class="d-flex flex-wrap justify-content-center col-lg-8 col-md-10 mx-auto">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text min-width-100" id="basic-addon1">Title</span>
+                        <input type="text" class="form-control" name="Title" id="Title" aria-label="Text1" aria-describedby="basic-addon1" placeholder="Write here..." required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text min-width-100" id="basic-addon1 ">Description</span>
+                        <input type="text" class="form-control" name="Description" id="Description" aria-label="Text2" aria-describedby="basic-addon1" placeholder="Write here..." required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text min-width-100" id="basic-addon1 ">Name</span>
+                        <input type="text" class="form-control" name="Name" id="Name" aria-label="Text2" aria-describedby="basic-addon1" placeholder="Write here..." required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text min-width-100" id="basic-addon1 ">CustomCSS</span>
+                        <input type="text" class="form-control" name="CustomCSSURL" id="CustomCSSURL" aria-label="Text2" aria-describedby="basic-addon1" placeholder="Write here..." required>
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-lg px-4 justify-content-end mx-auto" value="Save" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

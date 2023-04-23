@@ -1,0 +1,253 @@
+﻿<script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+<style>
+    :root {
+        --primary-color: lightblue;
+        --secondary-color: lightgreen;
+        --third-color: lightgrey;
+        --font-color: white;
+        --large: 300px;
+        --small: 150px;
+        --timing: 20s;
+        --large-size: 50px;
+        --number-size: 75px;
+    }
+
+    main {
+        height: 400px;
+        width: 100vw;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+
+    section {
+        height: auto;
+    }
+
+    .shape {
+        background-color: var(--primary-color);
+        width: var(--small);
+        height: var(--small);
+        border-radius: calc( var(--small) / 2);
+        display: flex;
+		flex-direction: column;
+		justify-content: center;
+        animation: breath var(--timing) ease infinite none running;
+        text-align: center;      
+        position: relative;
+    }
+
+    #seconds {
+        position: absolute;
+        left: 48.5%;
+        font-size: var(--number-size);
+        font-weight: bold;
+        z-index: 1000;
+        color: var(--font-color);
+    }
+
+    .text1 {
+        position: absolute;
+        top: 70%;
+        left: 44%;
+        font-size: var(--large-size);
+        animation: textsize1 var(--timing) ease infinite none running;
+    }
+
+    .text2 {
+        position: absolute;
+        top: 70%;
+        left: 46%;
+        font-size: var(--large-size);
+        animation: textsize2 var(--timing) ease infinite none running;
+    }
+
+    .text3 {
+        position: absolute;
+        top: 70%;
+        left: 44%;
+        font-size: var(--large-size);
+        animation: textsize3 var(--timing) ease infinite none running;
+    }
+
+    @@keyframes breath {
+	    25%, 50% {
+		    width: var(--large);
+		    height: var(--large);
+		    border-radius: calc( var(--large) / 2);
+		}
+        75% {
+            width: var(--small);
+            height: var(--small);
+            border-radius: calc( var(--small) / 2);
+        }
+		0% {
+		    background-color: var(--primary-color);
+		}
+        24% {
+            background-color: var(--primary-color);
+        }
+		25% {
+	        background-color: var(--secondary-color);
+		}
+        49% {
+            background-color: var(--secondary-color);
+        }
+		50% {
+		    background-color: var(--third-color);
+		}
+        74% {
+            background-color: var(--third-color);
+        }
+        75% {
+            background-color: var(--secondary-color);
+        }
+        99% {
+            background-color: var(--secondary-color);
+        }
+    }
+
+    @@keyframes textsize1 {
+        0% {
+		    opacity: 1;
+		}
+		24%{
+		    opacity: 1;
+		}
+	    25% {
+		    opacity: 0;
+		}
+		49%{
+		    opacity: 0;
+		}
+		50% {
+		    opacity: 0;
+		}
+		99%{
+		    opacity: 0;
+		}
+    }
+
+    @@keyframes textsize2 {
+        0% {
+		    opacity: 0;
+		}
+		24%{
+		    opacity: 0;
+		}
+	    25% {
+		    opacity: 1;
+		}
+		49%{
+		    opacity: 1;
+		}
+		50% {
+		    opacity: 0;
+		}
+		74%{
+		    opacity: 0;
+		}
+        75% {
+            opacity: 1;
+        }
+        99%{
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @@keyframes textsize3 {
+        0% {
+		    opacity: 0;
+		}
+		24%{
+		    opacity: 0;
+		}
+	    25% {
+		    opacity: 0;
+		}
+		49%{
+		    opacity: 0;
+		}
+		50% {
+		    opacity: 1;
+		}
+		74%{
+		    opacity: 1;
+		}
+        75% {
+            opacity: 0;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+</style>
+<script>
+    var time = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--timing')) * 1000;
+
+    function animate() {
+    		
+    	let colors = ["blue", "green","grey","green"];
+
+		let index = 0;
+
+    	$(function() {
+			$('.shape').easyPieChart({
+				size: 160,
+				barColor: colors[index],
+				scaleLength: 0,
+				lineWidth: 15,
+				trackColor: "transparent",
+				lineCap: "circle",
+				animate: time/4,
+		  	});
+		});
+
+		function timer() {
+	    	var secondsLabel = document.getElementById("seconds");
+			var totalSeconds = 1;
+			var index = Math.floor(time/4/1000);
+			setInterval(setTime, 1000);
+
+			function setTime() {
+				if (totalSeconds != 0) {
+					secondsLabel.innerHTML = totalSeconds % 60;
+				}
+				else {
+					secondsLabel.innerHTML = "";
+				}
+			  		
+			  	totalSeconds = (totalSeconds+1)%index;
+			}
+			setInterval(() => {
+				timer();
+			}, time/4);
+	    }
+
+	    timer();
+
+		setInterval(() => {
+			$('.shape').data('easyPieChart').update(0);
+			$('.shape').data('easyPieChart').update(100);
+
+			$('.shape').data('easyPieChart').options.barColor = colors[(++index)%4];
+		}, time/4);
+    }
+
+    animate();
+</script>
+<div class="justify-content-center col-md-6 col-lg-6 d-flex flex-wrap mx-auto">
+    <main>
+    	<p id="seconds"></p>
+        <div class="shape" data-percent="100%">
+        </div>
+    </main>
+    <div>
+    	<p class="text1">Breathe in...</p>
+        <p class="text2">Hold it...</p>
+        <p class="text3">Breathe out...</p>
+    </div>
+</div>

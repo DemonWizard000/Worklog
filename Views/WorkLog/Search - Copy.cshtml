@@ -1,0 +1,123 @@
+﻿@model WorkLog.Models.WorkLogAnswerDTO
+@{
+    ViewData["Title"] = "Work Log Search";
+    ViewData["HeaderTitle"] = "Daily Inventory";
+}
+<script>
+    $(document).ready(function () {
+
+        /*
+        send post request to get data from controller
+        */
+        const setItem = function () {
+
+            const flag = parseInt($("#dateRange").val());
+
+            $.post({
+                url: "/api/WorkLogAPI/searchWorkLogs",
+                data: { flag }
+            }, function (response) {
+
+                $("#list").empty();
+                response.reverse();
+                response.forEach(function (res, index) {
+                    let item;
+                    //if it's first question
+                    if (flag === 0)
+                    {
+                        item = $(`
+                            <a class="list-group-item list-group-item-action d-flex gap-3 py-2 justify-content-between" aria-current="true">
+                                <div class="d-flex align-items-center">
+                                   <h5 class="mb-0">• ${res.date}</h5>
+                                </div>
+                                <i class="fa-solid emoji-sm emoji-color">                                
+                            </a>`
+                        );
+                        if (res.feeling[0])
+                            item.find('i').addClass("fa-face-frown-slight");
+                        if (res.feeling[1])
+                            item.find('i').addClass("fa-face-meh");
+                        if (res.feeling[2])
+                            item.find('i').addClass("fa-face-smile");
+                    }
+                    else
+                    {
+                        item = $(`
+                            <a class="list-group-item list-group-item-action d-flex gap-3 py-2 justify-content-between" aria-current="true">
+                                <div class="d-flex align-items-center">
+                                   <h5 class="mb-0">• ${res.date}</h5>
+                                </div>
+                                <div class="px-1 text-center">
+                                   <i class="fa-solid fa-face-frown-slight emoji-sm emoji-color"><br/><span class="fs-5 text-dark">${res.feeling[0]}</span></i>
+                                </div>
+                                <div class="px-1 text-center">
+                                    <i class="fa-solid fa-face-meh emoji-sm emoji-color"><br/><span class="fs-5 text-dark">${res.feeling[1]}</span></i>
+                                </div>
+                                <div class="px-1 text-center">
+                                        <i class="fa-solid fa-face-smile emoji-sm emoji-color"><br/><span class="fs-5 text-dark">${res.feeling[2]}</span></i>
+                                </div>
+                            </a>`
+                        );
+                    }
+
+                    $("#list").append(item);
+
+                    item.on('click', function () {
+                        item.siblings().removeClass("active");
+                        item.addClass("active");
+                        buildWordCloud("word_cloud", res.answer_Concat || "");
+                        drawBarChart("word_bar_chart", res.answer_Concat || "");
+                    });
+
+                });
+
+            });
+        }
+
+        //initial item set
+        setItem();
+
+        //when you chance search value
+        $("#dateRange").on("change", function () {
+            setItem();
+        });
+    });
+</script>
+<div class="row d-flex align-items-center text-center placeholder-block">
+    <div class="col">
+        <h3>Search Page</h3>
+        <p> This page will provide a text search of your logs.<br />For example, you'll be able to search for all entries related to "Acme Inc" </p>
+    </div>
+</div>
+@*<div class="row">
+    <div class="py-3">
+        <div class="mb-4">
+            <span class="mx-auto fs-5">Search:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <select class="dropdown-toggle form-select search-wx fs-5" aria-label="Default select example" id="dateRange">
+                <option value="0">Past Week</option>
+                <option value="1">Past Month</option>
+                <option value="2">Past 3 months</option>
+                <option value="3">Past Year</option>
+                <option value="4">All time</option>
+            </select>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 py-5">
+            <div class="list-group w-auto" id="list">
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5 py-5">
+            <div class="flex-grid align-item-center justify-content-center mx-auto">
+                <div id="word_cloud" class="word-cloud"></div>
+            </div>
+            <div class="flex-grid align-item-center justify-content-center mx-auto">
+                <div class="word_bar_chart">
+                    <canvas id="word_bar_chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@

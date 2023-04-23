@@ -1,0 +1,133 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WorkLog
+build_property.RootNamespace = WorkLog
+build_property.ProjectDir = E:\Dev\ASP.NET\PersonalLog\PersonalLogs\trunk\WorkLog\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\Dev\ASP.NET\PersonalLog\PersonalLogs\trunk\WorkLog
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/Admin/CreateSites.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlU2l0ZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/Admin/ManageSites.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlU2l0ZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/Admin/Settings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2V0dGluZ3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/Auth/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/Auth/SignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxTaWduSW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/Channel/Invitations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhbm5lbFxJbnZpdGF0aW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/Channel/Manage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhbm5lbFxNYW5hZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/Group/Manage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcTWFuYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/Answer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xBbnN3ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/Compare.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xDb21wYXJlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/DailyInventory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xEYWlseUludmVudG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/HowTo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xIb3dUby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/LinkedList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xMaW5rZWRMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/Premium.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xQcmVtaXVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/Review.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xSZXZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/Search - Copy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xTZWFyY2ggLSBDb3B5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xTZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/Welcome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xXZWxjb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/_Welcome0.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xfV2VsY29tZTAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/_Welcome1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xfV2VsY29tZTEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/WorkLog/_Welcome2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0xvZ1xfV2VsY29tZTIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Dev/ASP.NET/PersonalLog/PersonalLogs/trunk/WorkLog/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-hrttori2d5
